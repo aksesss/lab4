@@ -6,30 +6,23 @@ class Unique(object):
         elif str(type(items)) == '<class \'generator\'>':
             self.item = items
         else:
-            print("Класс Unique принимает на вход list или generator, а не" + str(type(items)))
-            raise TypeError
+            raise TypeError("Класс Unique принимает на вход list или generator, а не " + str(type(items)))
         self.unique_item_list = []
         self.ignore_case = kwargs.get('ignore_case')
 
-    def _IsUnique(self, item):
+    def _is_unique(self, item):
         if self.ignore_case:
-            str(item)
+            item = str(item)
             item = item.lower()
-            if item in self.unique_item_list:
-                return False
-            else:
-                self.unique_item_list.append(item)
-                return True
+        if item in self.unique_item_list:
+            return False
         else:
-            if item in self.unique_item_list:
-                return False
-            else:
-                self.unique_item_list.append(item)
-                return True
+            self.unique_item_list.append(item)
+            return True
 
     def __next__(self):
         value = next(self.item)
-        while not self._IsUnique(value):
+        while not self._is_unique(value):
             value = next(self.item)
         return value
 
