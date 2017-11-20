@@ -2,11 +2,13 @@
 from librip.gens import field
 from librip.gens import gen_random
 
+
 goods = [
     {'title': 'Ковер', 'price': 2000, 'color': 'green'},
     {'title': 'Диван для отдыха', 'price': 5300, 'color': 'black'},
     {'title': 'Стелаж', 'price': 7000, 'color': 'white'},
     {'title': 'Вешалка для одежды', 'price': 800, 'color': 'white'},
+    {'title': 'Балалайка', 'price': None, 'color': 'white'},
     {'title': None, 'price': 9, 'color': 'white'},
     {'title': None, 'price': None, 'color': 'white'},
 ]
@@ -16,3 +18,4 @@ goods = [
 print(list(field(goods, 'title')))
 print(list(field(goods, 'title', 'price')))
 print(list(gen_random(1, 3, 5)))
+

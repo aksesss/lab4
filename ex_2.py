@@ -13,4 +13,3 @@ print(list(Unique(data2)))
 print(list(Unique(data3, ignore_case=False)))
 print(list(Unique(data4, ignore_case=False)))
 print(list(Unique(data4, ignore_case=True)))
-
